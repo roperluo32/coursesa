@@ -37,8 +37,7 @@ for i = 1:m
 		ps(j) = sigmoid(x * all_theta(j,:)');
 	end
 	[mm,idx] = max(ps);
-	if idx == 10,
-		idx = 0;
+
 	p(i) = idx;
 end
 

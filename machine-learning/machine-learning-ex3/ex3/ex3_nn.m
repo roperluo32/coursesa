@@ -53,6 +53,8 @@ fprintf('\nLoading Saved Neural Network Parameters ...\n')
 
 % Load the weights into variables Theta1 and Theta2
 load('ex3weights.mat');
+fprintf('\nsize theta1: %d\n', size(Theta1));
+fprintf('\nsize theta2: %d\n', size(Theta2));
 
 %% ================= Part 3: Implement Predict =================
 %  After training the neural network, we would like to use it to predict
@@ -61,6 +63,7 @@ load('ex3weights.mat');
 %  you compute the training set accuracy.
 
 pred = predict(Theta1, Theta2, X);
+
 
 fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
 
