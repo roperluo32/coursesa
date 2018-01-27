@@ -31,6 +31,7 @@ fprintf('Visualizing example dataset for PCA.\n\n');
 %  variable X in your environment
 load ('ex7data1.mat');
 
+fprintf("size of X:%f", size(X))
 %  Visualize the example dataset
 plot(X(:, 1), X(:, 2), 'bo');
 axis([0.5 6.5 2 8]); axis square;
@@ -102,6 +103,7 @@ hold off
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
 
 %% =============== Part 4: Loading and Visualizing Face Data =============
 %  We start the exercise by first loading and visualizing the dataset.
@@ -217,7 +219,7 @@ title('Pixel dataset plotted in 3D. Color shows centroid memberships');
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
-%% === Part 8(b): Optional (ungraded) Exercise: PCA for Visualization ===
+%% === Part 8(b): Optional (ungraded) Exercise: PCA for Visuali zation ===
 % Use PCA to project this cloud to 2D for visualization
 
 % Subtract the mean to use PCA
