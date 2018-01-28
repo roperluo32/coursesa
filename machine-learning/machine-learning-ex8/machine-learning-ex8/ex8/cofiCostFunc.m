@@ -7,15 +7,15 @@ function [J, grad] = cofiCostFunc(params, Y, R, num_users, num_movies, ...
 %
 
 % Unfold the U and W matrices from params
-X = reshape(params(1:num_movies*num_features), num_movies, num_features);
-Theta = reshape(params(num_movies*num_features+1:end), ...
-                num_users, num_features);
+X = reshape(params(1:num_movies*num_features), num_movies, num_features);   %  X:n_m*n_fe
+Theta = reshape(params(num_movies*num_features+1:end), ...					%  Theta: n_u*n_fe
+                num_users, num_features);   
 
             
 % You need to return the following values correctly
 J = 0;
-X_grad = zeros(size(X));
-Theta_grad = zeros(size(Theta));
+X_grad = zeros(size(X));				% X_grad:n_m*n_fe
+Theta_grad = zeros(size(Theta));		% Theta_grad:n_u*n_fe
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost function and gradient for collaborative
@@ -40,9 +40,12 @@ Theta_grad = zeros(size(Theta));
 %                     partial derivatives w.r.t. to each element of Theta
 %
 
-
-
-
+item = (((X * Theta') - Y) .* R);   %item: n_m*n_u
+regu_X = sum((X.^2)(:)) * lambda / 2;
+regu_Theta = sum((Theta.^2)(:)) * lambda / 2;
+J = sum((item.^ 2)(:))/2 + regu_X + regu_Theta;  %n_m*n_u
+X_grad = item * Theta + lambda * X;  % item:n_m*n_u  Theta: n_u*n_f  X:n_m*n_f
+Theta_grad = item' * X + lambda * Theta; % item:n_m*n_u X:n_m*n_f  Theta:n_u*nf
 
 
 

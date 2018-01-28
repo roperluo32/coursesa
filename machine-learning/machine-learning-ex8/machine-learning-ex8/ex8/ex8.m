@@ -68,6 +68,7 @@ ylabel('Throughput (mb/s)');
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
+
 %% ================== Part 3: Find Outliers ===================
 %  Now you will find a good epsilon threshold using a cross-validation set
 %  probabilities given the estimated Gaussian distribution
@@ -91,6 +92,7 @@ hold off
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
 
 %% ================== Part 4: Multidimensional Outliers ===================
 %  We will now use the code from the previous part and apply it to a 
@@ -119,3 +121,4 @@ fprintf('Best F1 on Cross Validation Set:  %f\n', F1);
 fprintf('   (you should see a value epsilon of about 1.38e-18)\n');
 fprintf('   (you should see a Best F1 value of 0.615385)\n');
 fprintf('# Outliers found: %d\n\n', sum(p < epsilon));
+
